@@ -1,14 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>算法代碼庫 - Algorithm Code Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1> hi </h1>
+    <div class="container">
+        <header>
+            <h1>算法代碼庫</h1>
+            <p class="subtitle">Algorithm & Data Structure Code Library</p>
+        </header>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="🔍 搜索算法或數據結構...">
+        </div>
+
+        <div class="category-nav" id="categoryNav">
+            <button class="category-btn active" data-category="all">全部</button>
+        </div>
+
+        <div class="content-grid" id="contentGrid"></div>
+        <div class="no-results" id="noResults" style="display: none;">找不到相關代碼 😢</div>
+
+        <!-- Add Code Button -->
+        <button class="add-code-btn" onclick="openModal()">+</button>
+
+        <!-- Modal -->
+        <div class="modal" id="addCodeModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">✨ 新增代碼</div>
+                    <button class="close-btn" onclick="closeModal()">×</button>
+                </div>
+                <form id="addCodeForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="codeTitle">標題 *</label>
+                        <input type="text" id="codeTitle" required placeholder="例如：快速排序">
+                    </div>
+                    <div class="form-group">
+                        <label for="codeCategory">分類 *</label>
+                        <select id="codeCategory" required>
+                            <option value="">請選擇分類</option>
+                            <option value="圖論">圖論</option>
+                            <option value="數學">數學</option>
+                            <option value="演算法">演算法</option>
+                            <option value="資料結構">資料結構</option>
+                            <option value="小技巧">小技巧</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="codeContent">代碼內容 *</label>
+                        <textarea id="codeContent" required placeholder="貼上你的 C++ 代碼..."></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeModal()">取消</button>
+                        <button type="submit" class="btn btn-primary">新增代碼</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/cpp.min.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
